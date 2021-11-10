@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+}
+
+.navbar {
+  height:75px;
+  background-color: #6cbe5e;
+  color: #ffffff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 24px;  
+}
+
+.navbar .logo .textLogo {
+  text-decoration: none;
+  color: whitesmoke;  
+}
+
+.navbar .menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.banner .image-banner {
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 600px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.list-products {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.list-products .kotak-wrapper {
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 350px;
+  height: 250px;
+  /* padding: 50px; */
+  margin: 25px;
+}
+
+.page-number .ordered-page {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.page-number {
+  margin: 20px;
+}
+
+.list-product .tulisan-product {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  /* margin: 20px; */
+}
+
+.footer {
+  height: 75px;  
+  background-color: #6cbe5e;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.footer .menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  font-size: 20px;  
+}
+
+/* detail.html */
