@@ -9,7 +9,6 @@ import '../Assets/CSS/styles.css'
 /* import component */
 import Navbar from './Navbar'
 import Banner from './Banner'
-import SearchProduct from './SearchProduct'
 import ListProduct from './ListProduct'
 import Footer from './Footer'
 
@@ -20,7 +19,6 @@ class Main extends React.Component {
       <Container fluid>
         <Navbar />
         <Banner />
-        <SearchProduct />
         <ListProduct />
         <Footer />
       </Container>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import Axios from 'axios'
 
 class ListProduct extends React.Component {
@@ -9,6 +9,17 @@ class ListProduct extends React.Component {
         url: 'http://www.omdbapi.com/?apikey=58ed57ce&s=world',
         method: 'get'
     },
+  }
+
+  HoverIn(e) {
+    e.preventDefault()
+    document.querySelector(`.dsp-foreground-${e.target.id}`).style.cssText += 'background-color: grey; opacity: 30%;';
+    document.querySelector(`.dsp-background-${e.target.id}`).style.cssText = 'position: relative;';
+  }
+
+  HoverOut(events) {
+    document.querySelector(`.dsp-foreground-${events.target.id}`).style.cssText = 'position: absolute;';
+    document.querySelector(`.dsp-background-${events.target.id}`).style.cssText = 'position: relative; display: none;';
   }
 
   componentDidMount() {
@@ -25,32 +36,31 @@ class ListProduct extends React.Component {
   render() {
     return(
       <Row className="list-products">
+        <p className="preambule" md="12" style={{ fontSize: "24px", marginTop: "24px", textAlign: "center"}}>PRODUCTS</p>
+        <Col className="search-form" md="12" style={{ textAlign: "center" }}>
+          <input className="inputan form-control mx-auto w-50" type="text" style={{ marginBottom: "20px" }} placeholder="What is Your Favorite Movie??"></input>
+          <Button type="button" variant="outline-dark" className="resetting btn-lg mb-3 mx-2">Reset</Button>          
+          <Button type="button" variant="outline-danger" className="searching btn-lg mb-3 mx-2">Search</Button>
+        </Col>        
         <>
             {
-                this.state.OMDBData !== null ? 
-                    this.state.OMDBData.Search.map((data, index) => {
-                        return(
-                            // <div key={ index }>
-                            //     <img src={ data.Poster } alt={data.Title} />
-                            //     <div>Halo { data.Title }, Welcome to tester js. Your Address { data.title }</div>
-                            // </div>
-
-                            <div key={ index } className={ `kotak-wrapper wrapper-product-${index+1} shadow-lg rounded col-4` } style={{ backgroundColor: "rgb(250, 250, 250)" }} >
-                              <div id={ `dsp-foreground-${index+1}` } className={ `display-depan dsp-foreground-${index+1}` } style={{ position: "absolute" }}>
-                                <img src={ data.Poster } style={{ width: "200px", height: "175px" }} alt={data.Title} />
-                                  <p className="text-wrap" style={{ marginTop: "16px", width: "200px" }}> { data.Title } </p>
-                              </div>
-                              {/* <div id="dsp-background-1" class="dsp-background-1" style="position: relative; display: none;">
-                                  <a href="detail.html?id=tt1981115&amp;title=Thor: The Dark World">
-                                  <button class="tombol-info-1 btn btn-light w-100">HRef</button>
-                                  </a>
-                                  <br>
-                                  <button data-toggle="modal" data-target="#exampleModalCenter-1" class="tombol-info-1 btn btn-dark w-100">Modal</button>                
-                              </div>             */}
-                            </div>                                            
-                        )
-                    })
-                : null
+              this.state.OMDBData !== null ? 
+                  this.state.OMDBData.Search.map((data, index) => {
+                      return(
+                          <div key={ `wrapper-${index}` } className={ `kotak-wrapper wrapper-product-${index+1} shadow-lg rounded col-4` } style={{ backgroundColor: "rgb(250, 250, 250)" }} >
+                            <div key={ `fore-${index}` } id={ `${index+1}` } className={ `display-depan dsp-foreground-${index+1}` } style={{ position: "absolute" }} onMouseOver={ this.HoverIn } onMouseLeave={ this.HoverOut } >
+                              <img src={ data.Poster } id={ `${index+1}` } style={{ width: "200px", height: "175px" }} alt={data.Title} />
+                              <p className="text-wrap" id={ `${index+1}` } style={{ marginTop: "16px", width: "200px" }}> { data.Title } </p>
+                            </div>
+                            <div key={ `back-${index}` } id={ `dsp-background-${index+1}` } className={ `display-belakang dsp-background-${index+1}` } style={{ position: "relative", display: "none"}} >
+                              <a href={ `/detail/${data.Title}` } >
+                                <Button variant="light" className={ `tombol-info-${index+1} w-100` }>HRef</Button>
+                              </a>
+                            </div>            
+                          </div>                                            
+                      )
+                  })
+              : null
             }
         </>
       </Row>             

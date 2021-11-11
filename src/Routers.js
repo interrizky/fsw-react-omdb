@@ -8,7 +8,8 @@ class Routers extends React.Component {
     return(
       <BrowserRouter>
         <Routes>
-          <Route exact path="/omdb-api" element= { <Main /> } />
+          <Route exact path="/" element= { <Main /> } />
+          <Route path="/omdb-api" element= { <Main /> } />
         </Routes>      
       </BrowserRouter>
     )

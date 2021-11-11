@@ -7,10 +7,26 @@ import reportWebVitals from './reportWebVitals';
 /* import Routes as a Default Routes */
 import Routers from './Routers'
 
+/* import redux for reducers */
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+
+/* Reducers */
+import MovReducers from './Redux/MovReducers'
+
+const options = combineReducers({
+  MovReducers
+})
+
+/* Create Store */
+const StoreData = createStore(options)
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Routers />
+    <Provider store={ StoreData }>
+      {/* <App /> */}
+      <Routers />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
