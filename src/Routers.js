@@ -9,7 +9,7 @@ class Routers extends React.Component {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element= { <Main /> } />
-          <Route path="/omdb-api" element= { <Main /> } />
+          {/* <Route path="/omdb-api" element= { <Main /> } /> */}
         </Routes>      
       </BrowserRouter>
     )
